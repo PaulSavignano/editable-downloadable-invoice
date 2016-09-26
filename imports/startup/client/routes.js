@@ -10,6 +10,10 @@ import { NotFound } from '../../ui/pages/not-found'
 import { RecoverPassword } from '../../ui/pages/recover-password'
 import { ResetPassword } from '../../ui/pages/reset-password'
 import { Signup } from '../../ui/pages/signup'
+import { InvoicesLayout } from '../../ui/layouts/invoices-layout'
+import { InvoicePage } from '../../ui/pages/invoice-page'
+import { InvoicesPage } from '../../ui/pages/invoices-page'
+
 
 const requireAuth = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
@@ -25,6 +29,10 @@ Meteor.startup(() => {
     <Router history={ browserHistory }>
       <Route path="/" component={ App }>
         <IndexRoute name="index" component={ Index } onEnter={ requireAuth } />
+        <Route name="invoices" path="invoices" component={ InvoicesLayout }>
+          <IndexRoute name="invoices" component={ InvoicesPage } onEnter={ requireAuth } />
+          <Route name="invoice" path=":invoiceId" component={ InvoicePage } onEnter={ requireAuth } />
+        </Route>
         <Route name="documents" path="/documents" component={ Documents } onEnter={ requireAuth } />
         <Route name="login" path="/login" component={ Login } />
         <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
