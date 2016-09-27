@@ -4,31 +4,11 @@ import fs from 'fs'
 
 let module
 
-const getComponentAsHTML = (component, props) => {
-  try {
-    return ReactDOMServer.renderToStaticMarkup(component(props))
-  } catch (exception) {
-    module.reject(exception)
-  }
-}
+const getBase64String = (path) => {}
 
-const generatePDF = (html, fileName) => {
-  try {
-    pdf.create(html, {
-      format: 'letter',
-      border: { top: '0.1in', right: '0.1in', bottom: '0.1in', left: '0.1in' },
-    }).toFile(`./tmp/${fileName}`, (error, response) => {
-      if (error) {
-        module.recject(error)
-      } else {
-        module.resolve({ fileName, base64: getBase64String(response.filename) })
-        fs.unlink(response.filename)
-      }
-    })
-  } catch (exception) {
-    module.reject(exception)
-  }
-}
+const getComponentAsHTML = (component, props) => {}
+
+
 
 const handler = ({ component, props, fileName }, promise) => {
   module = promise
