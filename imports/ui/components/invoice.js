@@ -77,7 +77,6 @@ const renderInvoice = (invoice) => (
   <InlineCss stylesheet={`
     .flex-container {
     display: flex;
-    display: -webkit-flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-content: center;
