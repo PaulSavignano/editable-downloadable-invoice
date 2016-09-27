@@ -180,7 +180,7 @@ const renderInvoice = (invoice) => (
     background-color: #5cb85c;
     }
     [contenteditable] {
-    padding: 3px;
+    padding: 2px;
     border-radius: 3px;
     }
 

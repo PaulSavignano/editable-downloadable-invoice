@@ -12,7 +12,7 @@ Invoices.schema = new SimpleSchema({
     type: String,
     label: 'Invoice date.',
   },
-  due_date: {
+  terms: {
     type: String,
     label: 'Invoice due date.',
   },
