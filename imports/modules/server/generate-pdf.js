@@ -7,8 +7,6 @@ let module
 
 const getBase64String = (path) => {}
 
-const generatePDF = (html, fileName) => {}
-
 const getComponentAsHTML = (component, props) => {
   try {
     return ReactDOMServer.renderToStaticMarkup(component(props))
