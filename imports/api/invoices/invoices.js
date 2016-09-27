@@ -5,7 +5,7 @@ export const Invoices = new Mongo.Collection('Invoices')
 
 Invoices.schema = new SimpleSchema({
   number: {
-    type: String,
+    type: Number,
     label: 'Invoice #.',
   },
   date: {
@@ -29,23 +29,28 @@ Invoices.schema = new SimpleSchema({
     label: 'Invoice description.',
   },
   hours: {
-    type: String,
+    type: Number,
+    decimal: true,
     label: 'Invoice hours',
   },
   rate: {
-    type: String,
+    type: Number,
+    decimal: true,
     label: 'Invoice rate.',
   },
   amount: {
-    type: String,
+    type: Number,
+    decimal: true,
     label: 'Invoice total.',
   },
   amount_paid: {
-    type: String,
+    type: Number,
+    decimal: true,
     label: 'Invoice amount paid.',
   },
   amount_due: {
-    type: String,
+    type: Number,
+    decimal: true,
     label: 'Invoice amnout due.',
   },
   notes: {

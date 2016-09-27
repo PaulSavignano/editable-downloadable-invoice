@@ -29,15 +29,20 @@ const handleUpdateInvoice = (event) => {
   event.preventDefault()
   const invoiceId = event.target.getAttribute('data-id')
   const form = document.querySelector('[name="invoice-form"]')
-  const number = form.querySelector('[name="number"]').innerText
+  const numberString = form.querySelector('[name="number"]').innerText
   const date = form.querySelector('[name="date"]').innerText
   const terms = form.querySelector('[name="terms"]').innerText
   const bill_to = form.querySelector('[name="bill_to"]').innerText
   const bill_to_cc = form.querySelector('[name="bill_to_cc"]').innerText
   const description = form.querySelector('[name="description"]').innerText
-  const hours = form.querySelector('[name="hours"]').innerText
-  const rate = form.querySelector('[name="rate"]').innerText
+  const hoursString = form.querySelector('[name="hours"]').innerText
+  const rateString = form.querySelector('[name="rate"]').innerText
   const notes = form.querySelector('[name="notes"]').innerText
+
+  const number = parseFloat(numberString).toFixed(2)/1
+  const hours = parseFloat(hoursString).toFixed(2)/1
+  const rate = parseFloat(rateString).toFixed(2)/1
+  console.log(typeof number)
   updateInvoice.call({
     _id: invoiceId,
     number,
@@ -180,6 +185,9 @@ const renderInvoice = (invoice) => (
     padding: 2px;
     border-radius: 3px;
     }
+    .dollars::before {
+    content: "$";
+    }
 
     @media print {
     /* A4 page is 595px width by 852px height */
@@ -277,6 +285,9 @@ const renderInvoice = (invoice) => (
     .total-item > table td:nth-child(2) {
     width: 33.333%;
     }
+    .dollars::before {
+    content: "$";
+    }
     }
   `}>
     <header>
@@ -335,7 +346,7 @@ const renderInvoice = (invoice) => (
             </table>
             <div className="amount-due-summary">
               <div>Amount Due:</div>
-              <div><strong>$1050.00</strong></div>
+              <div><strong className="dollars">{ (invoice.amount).toFixed(2) }</strong></div>
             </div>
           </div>
         </section>
@@ -372,13 +383,13 @@ const renderInvoice = (invoice) => (
               </div>
               <div className="flex-item rate-item">
                 <div><strong>Rate</strong></div>
-                <div contentEditable="true" suppressContentEditableWarning={true} name="rate">
-                  { invoice.rate }
+                <div contentEditable="true" suppressContentEditableWarning={true} name="rate" className="dollars">
+                  { (invoice.rate).toFixed(2) }
                 </div>
               </div>
               <div className="flex-item amount-item">
                 <div><strong>Amount</strong></div>
-                <div>$1050.00</div>
+                <div className="dollars">{ (invoice.amount).toFixed(2) }</div>
               </div>
             </div>
           </div>
@@ -391,19 +402,19 @@ const renderInvoice = (invoice) => (
               <tbody>
                 <tr>
                   <td>Subtotal:</td>
-                  <td>$1050.00</td>
+                  <td className="dollars">{ (invoice.amount).toFixed(2) }</td>
                 </tr>
                 <tr>
                   <td>Total:</td>
-                  <td>$1050.00</td>
+                  <td className="dollars">{ (invoice.amount).toFixed(2) }</td>
                 </tr>
                 <tr>
                   <td>Amount paid:</td>
-                  <td>$1050.00</td>
+                  <td className="dollars">0.00</td>
                 </tr>
                 <tr>
                   <td>Amount due:</td>
-                  <td>$0.00</td>
+                  <td className="dollars">{ (invoice.amount_due).toFixed(2) }</td>
                 </tr>
               </tbody>
             </table>

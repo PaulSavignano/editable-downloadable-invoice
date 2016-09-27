@@ -7,6 +7,7 @@ export default createContainer(({ params }) => {
   const { invoiceId } = params
   const subscription = Meteor.subscribe('invoices')
   const loading = !subscription.ready()
-  const invoice = Invoices.findOne(invoiceId)
+  const invoiceFetch = Invoices.find({_id: invoiceId}).fetch()
+  const invoice = invoiceFetch[0]
   return { loading, invoice }
 }, Invoice)
