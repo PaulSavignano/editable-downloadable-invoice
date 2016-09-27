@@ -80,12 +80,10 @@ const renderInvoice = (invoice) => (
     display: -webkit-flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    -webkit-justify-content: space-between;
     align-content: center;
     align-items: top;
     }
     .flex-item {
-    -webkit-flex: 1;
     flex: 1 1 auto;
     align-self: auto;
     min-height: auto;
