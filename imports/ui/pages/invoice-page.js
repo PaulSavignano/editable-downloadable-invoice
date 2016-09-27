@@ -1,11 +1,11 @@
 import React from 'react'
 import { PageHeader, Row, Col } from 'react-bootstrap'
-import Invoice from '../containers/invoices'
+import Invoice from '../containers/invoice'
 
-export const InvoicesPage = () => (
+export const InvoicePage = ({ params }) => (
   <Row>
     <Col xs={ 12 }>
-      <Invoice />
+      <Invoice params={params} />
     </Col>
   </Row>
 )

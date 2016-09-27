@@ -33,3 +33,4 @@ xolvio:backdoor
 mdg:validated-method
 dburles:factory@1.0.0
 ddp-rate-limiter@1.0.5
+react-meteor-data

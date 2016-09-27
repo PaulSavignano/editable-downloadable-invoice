@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, LinkContainer } from 'react-router'
 import { ListGroup, ListGroupItem, Button, Alert } from 'react-bootstrap'
+import { Loading } from './loading'
 import { Bert } from 'meteor/themeteorchef:bert'
 import { removeInvoice } from '../../api/invoices/methods'
 
@@ -18,7 +19,7 @@ const handleRemoveInvoice = (event) => {
   })
 }
 
-const renderInvoicesList = ({ invoices }) => (
+const renderInvoicesList = (invoices) => (
   invoices.length > 0 ?
   <ListGroup className="invoices-list">
     {invoices.map((invoice) => {
