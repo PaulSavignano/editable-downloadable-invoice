@@ -4,8 +4,6 @@ import fs from 'fs'
 
 let module
 
-const getBase64String = (path) => {}
-
 const getComponentAsHTML = (component, props) => {
   try {
     return ReactDOMServer.renderToStaticMarkup(component(props))
