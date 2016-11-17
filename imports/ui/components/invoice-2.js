@@ -7,7 +7,6 @@ const style = {
   },
   flexItem: {
     flex: '1 1 200px',
-    WebkitFlex: '1 1 200px',
     minWidth: 200,
     maxWidth: 300,
   },
