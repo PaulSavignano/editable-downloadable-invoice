@@ -17,7 +17,7 @@ export const insertInvoice = new ValidatedMethod({
       rate: 90.00,
       amount: 1350.00,
       amount_paid: 0.00,
-      amount_due: 0.00,
+      amount_due: 1350.00,
       notes: 'Thanks for your business!',
     })
   },
